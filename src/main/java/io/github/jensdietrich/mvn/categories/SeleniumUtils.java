@@ -1,4 +1,4 @@
-package nz.ac.wgtn.ecs.apisurfacestudy.dataacquisition.popularmvn;
+package io.github.jensdietrich.mvn.categories;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,4 +1,4 @@
-package nz.ac.wgtn.ecs.apisurfacestudy.dataacquisition.popularmvn;
+package io.github.jensdietrich.mvn.categories;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;

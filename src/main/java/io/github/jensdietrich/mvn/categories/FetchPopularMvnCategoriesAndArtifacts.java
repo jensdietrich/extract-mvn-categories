@@ -1,4 +1,4 @@
-package nz.ac.wgtn.ecs.apisurfacestudy.dataacquisition.popularmvn;
+package io.github.jensdietrich.mvn.categories;
 
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
@@ -10,7 +10,6 @@ import java.io.FileWriter;
 import java.text.DateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
-import static nz.ac.wgtn.ecs.apisurfacestudy.dataacquisition.popularmvn.SeleniumUtils.extractLinks;
 
 /**
  * Fetch popular categories and top artifacts within those categories from mvnrepository.com/.
@@ -46,7 +45,7 @@ public class FetchPopularMvnCategoriesAndArtifacts {
         Set<String> categoryLinks = new HashSet<>();
         for (int i = 1; i <= CATEGORY_PAGES; i++) {
             String url = POPULAR_CATEGORIES_URL + (i == 1 ? "" : ("?p=" + i));
-            categoryLinks.addAll(extractLinks(url, link -> (CATEGORY_URI_PATTERN.matcher(link).matches())));
+            categoryLinks.addAll(SeleniumUtils.extractLinks(url, link -> (CATEGORY_URI_PATTERN.matcher(link).matches())));
         }
 
         List<Artifact> artifacts = new ArrayList<>();
@@ -55,7 +54,7 @@ public class FetchPopularMvnCategoriesAndArtifacts {
             String categoryName = categoryURL.substring(categoryURL.lastIndexOf('/') + 1);
             for (int i = 1; i <= ARTIFACT_PAGES; i++) {
                 String url = categoryURL + (i == 1 ? "" : ("?p=" + i));
-                Collection<String> artifactLinks = extractLinks(url, link -> ARTIFACT_URI_PATTERN.matcher(link).matches() && !link.endsWith("/usages"));
+                Collection<String> artifactLinks = SeleniumUtils.extractLinks(url, link -> ARTIFACT_URI_PATTERN.matcher(link).matches() && !link.endsWith("/usages"));
                 int rank = 1;
                 for (String artifactLink : artifactLinks) {
                     // com.fasterxml.jackson.core/jackson-databind

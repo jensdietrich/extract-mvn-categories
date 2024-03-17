@@ -15,11 +15,11 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="nz.ac.wgtn.ecs.apisurfacestudy.dataacquisition.popularmvn.FetchPopularMvnCategoriesAndArtifacts" level="debug" additivity="false">
+        <Logger name="io.github.jensdietrich.mvn.categories.FetchPopularMvnCategoriesAndArtifacts" level="debug" additivity="false">
             <AppenderRef ref="stdout"/>
             <AppenderRef ref="fout-popular"/>
         </Logger>
-        <Logger name="nz.ac.wgtn.ecs.apisurfacestudy.dataacquisition.popularmvn.SeleniumUtils" level="debug" additivity="false">
+        <Logger name="io.github.jensdietrich.mvn.categories.SeleniumUtils" level="debug" additivity="false">
             <AppenderRef ref="stdout"/>
             <AppenderRef ref="fout-selenium"/>
         </Logger>
